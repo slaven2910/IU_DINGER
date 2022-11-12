@@ -1,0 +1,25 @@
+
+.green-box{
+    background-color: green;
+    height: 20%;
+    width: 100%;
+    float: right;
+}
+.blue-box{
+    background-color: blue;
+    height: 80%;
+    width: 40%;
+    float: left;
+}
+
+.red-box{
+    background-color: red;
+    height: 80%;
+    width: 60%;
+    float: right;
+}
+
+body{
+    position: absolute;
+    top: 0; bottom: 0; right: 0; left: 0;
+}
