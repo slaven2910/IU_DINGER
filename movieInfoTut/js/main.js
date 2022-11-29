@@ -58,9 +58,7 @@ function getMovie(){
 
         let output = `
         <div class="row">
-            <div class="col-md-4">
-                <img src="${movie.Poster}" class="thumbnail">
-            </div>
+            
             <div class="col-md-8">
                 <h2>${movie.Title}</h2>
                 <ul class="list-group">
@@ -72,6 +70,9 @@ function getMovie(){
                     <li class="list-group-item"><strong>Writer:</strong> ${movie.Writer}</li>
                     <li class="list-group-item"><strong>Actors:</strong> ${movie.Actors}</li>
                 </ul>
+            </div>
+            <div class="col-md-4">
+                <img src="${movie.Poster}" class="thumbnail">
             </div>
         </div>
         <div class="row">
