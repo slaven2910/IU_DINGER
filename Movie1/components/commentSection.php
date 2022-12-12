@@ -46,11 +46,13 @@ foreach($queryResult as $row){
   <ul class='list-group'>
   <li class='list-group-item'>
     <div class='d-flex bd-highlight'>
+    <form method='post' action='delete.php'>
     <small class='mr-auto p-2 bd-highlight'>- $written_by</small>
     <a href='edit.php' class='p-2 bd-highlight' name='editComment'><i class='fa-sharp fa-solid fa-pen'></i></a>
     <a  data-bs-toggle='modal' data-bs-target='#exampleModal' class='p-2 bd-highlight' name='deleteComment'><i class='fa-solid fa-trash'></i></a>
     </div>
     <p> $comment </p>
+    </form>
 </li>
 <hr >
 </ul>
