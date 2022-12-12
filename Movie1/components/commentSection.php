@@ -10,7 +10,11 @@ require_once 'query.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MovieReviewApp
     </title>
+
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,27 +35,73 @@ require_once 'query.php';
 <section>
 <?php
 $id = $_GET["id"];
-$sqlSelect = "select * from commentMock where id = $id";
+$sqlSelect = "select * from commentmock where id = $id";
 $queryResult = executeSQL($sqlSelect);
 foreach($queryResult as $row){
-  $commentId = $row['id'];
+  $commentId = $row['commentid'];
   $written_by = $row['owner'];
   $comment = $row['comment'];
-  echo "<ul class='list-group'>
+  echo "
+  <form action='delete.php?id=$id&commentId=$commentId' method='post'>
+  <ul class='list-group'>
   <li class='list-group-item'>
     <div class='d-flex bd-highlight'>
     <small class='mr-auto p-2 bd-highlight'>- $written_by</small>
     <a href='edit.php' class='p-2 bd-highlight' name='editComment'><i class='fa-sharp fa-solid fa-pen'></i></a>
-    <a action='delete($commentId)' class='p-2 bd-highlight' name='deleteComment'><i class='fa-solid fa-trash'></i></a>
+    <a  data-bs-toggle='modal' data-bs-target='#exampleModal' class='p-2 bd-highlight' name='deleteComment'><i class='fa-solid fa-trash'></i></a>
     </div>
     <p> $comment </p>
 </li>
 <hr >
-</ul>";
-}
-?>
+</ul>
+</form>
+";
 
+?>
+<div class="modal" id="exampleModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">Are you sure you want to delete this comment?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>This action is irreversable.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <form action=<?php echo "delete.php?id=$id&commentId=$commentId"?> method='post'>
+        <a type="post" href=<?php echo "delete.php?id=$id&commentId=$commentId"  ?> class="btn btn-primary">Delete comment</a>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<?php } ?>
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" href='delete.php?id=$id&commentId=$commentId' class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
  
 </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 </body>
 </html>

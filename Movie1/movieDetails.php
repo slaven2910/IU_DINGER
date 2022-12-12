@@ -23,7 +23,7 @@ session_start();
 <div class="well">
 <?php
 $id = $_GET["id"];
-$sqlSelect = "select * from movieData  where id = $id";
+$sqlSelect = "select * from movieData where id = $id";
 $queryResult = executeSQL($sqlSelect);
 foreach($queryResult as $row){
   $movieId = $row['id'];

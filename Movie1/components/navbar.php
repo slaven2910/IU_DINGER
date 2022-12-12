@@ -7,7 +7,7 @@
     <title>MovieReviewApp
     </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 <div class="container">
@@ -15,7 +15,7 @@
 <section>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="index.php">
-            <img src="png/logo-white.png" class="img-fluid" style="width: 100px;
+            <img src="png/logo-white.png" class="img-fluid logo" style="width: 100px;
     height: 100px;
     border-radius:70%;
     overflow: hidden;
