@@ -46,3 +46,7 @@ function amountFor(aPerformance, play) {
     return result;
 }
     
+
+function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+}

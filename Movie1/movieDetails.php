@@ -9,12 +9,11 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="C:\httpd-2.4.54-win64-VS17\Apache24\htdocs\IU_DINGER\Movie1\dist\css\styles.css">
 </head>
-<body>
+<body class="bg-dark">
 <div class="container">
     <!-- Navbar -->
     <?php include('./components/navbar.php'); ?>
@@ -37,7 +36,7 @@ foreach($queryResult as $row){
   $actors = $row['actors'];
   $plot = $row['plot'];
   $poster = $row['poster'];
-  $dom = new DOMDocument();
+  /* $dom = new DOMDocument();
 
   $div = $dom->createElement('div');
   $div->setAttribute('class', 'row py-5');
@@ -98,8 +97,20 @@ foreach($queryResult as $row){
   $imgPoster->setAttribute('src', $poster);
   $div2->appendChild($imgPoster);
 
-  $htmlString=$dom->saveHTML();
-  echo $htmlString;
+  $htmlString=$dom->saveHTML(); */
+  echo "
+  <div class='row'>
+      <h2 class='text-light mx-auto d-block'>$title</h2>
+  </div>
+  <div class='row'>
+      <img src='$poster' class='thumbnail mx-auto d-block' style='height:400px;width:400px;'>
+  </div>
+<div class='row'>
+      <h3 class='mx-auto d-block text-light'>Plot:</h3>
+      <p class='mx-auto d-block text-light'>$plot </p>
+      <hr>
+  </div>
+";
 
 }
 ?>
@@ -112,7 +123,6 @@ foreach($queryResult as $row){
 
 <hr color="white">
 
-</section>
 </div>
 </body>
 </html>
