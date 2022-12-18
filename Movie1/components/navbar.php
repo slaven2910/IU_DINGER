@@ -15,7 +15,7 @@
 <section>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border border-light">
   <a class="navbar-brand" href="index.php">
-            <img src="png/logo-white.png" class="img-fluid" style="width: 100px;
+            <img src="png/logo-white.png" class="img-fluid logo" style="width: 100px;
     height: 100px;
     border-radius:70%;
     overflow: hidden;
