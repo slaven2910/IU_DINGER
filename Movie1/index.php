@@ -22,20 +22,21 @@
 <?php
 require_once 'db-connect/dbConnection.php';
 session_start();
-$sqlSelect = "select * from movieData ";
+$sqlSelect = "select * from public.\"Movies\"";
 $queryResult = executeSQL($sqlSelect);
 foreach($queryResult as $row){
-  $movieId = $row['id'];
+  $movieId = $row['ID'];
   $title = $row['title'];
   $genre = $row['genre'];
-  $released = $row['released'];
-  $rated = $row['rated'];
-  $rating = $row['rating'];
-  $director = $row['director'];
-  $writer = $row['writer'];
-  $actors = $row['actors'];
+  $publishingYear = $row['publishingyear'];
+  // TODO: need to change later
+  // $rated = $row['rated'];
+  // $rating = $row['rating'];
+  // $director = $row['director'];
+  // $writer = $row['writer'];
+  // $actors = $row['actors'];
   $plot = $row['plot'];
-  $poster = $row['poster'];
+  $poster = $row['image'];
   $dom = new DOMDocument();
   
  /*  $div1 = $dom->createElement('div');

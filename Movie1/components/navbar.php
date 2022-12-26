@@ -32,7 +32,7 @@
       </li>
     </ul>
     <form action="">
-      <button class="btn btn-outline-dark">Login</button>
+      <a class="btn btn-outline-dark" href="./login.php">Login</a>
     </form>
   </div>
 </nav>
