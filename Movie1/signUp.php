@@ -11,12 +11,7 @@
 </head>
 
 <body>
-    <?php include("./components/navbar.php");
-
-    // change to original database information
-    $dbConn = pg_connect("host=localhost port=5432 dbname=SlyTV user=postgres password=1234") or die("Database connection failed... " . pg_last_error());
-
-    ?>
+    <?php include("./components/navbar.php"); ?>
 
     <div class="mask d-flex align-items-center h-100 gradient-custom-3 p-5">
         <div class="container h-100">

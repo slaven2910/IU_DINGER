@@ -1,8 +1,7 @@
 <?php
 session_start();
 // change to original database information
-$dbConn = pg_connect("host=localhost port=5432 dbname=SlyTV user=postgres password=1234") or die("Database connection failed... " . pg_last_error());
-
+require_once 'db-connect/dbConnection.php';
 if (isset($_POST["eMail"]) && isset($_POST["password"])) {
 
     function validate($data)
@@ -25,10 +24,10 @@ if (isset($_POST["eMail"]) && isset($_POST["password"])) {
     } else {
         $query = "SELECT * FROM public.\"Users\" WHERE email='$eMail'";
 
-        $queryResult = pg_query($dbConn, $query);
+        $queryResult = executeSQL($query);
 
-        if (pg_num_rows($queryResult) === 1) {
-            $row = pg_fetch_assoc($queryResult);
+        if ($queryResult->rowCount() === 1) {
+            $row = $queryResult->fetch(PDO::FETCH_ASSOC);
 
             // password hashing for security reasons --> https://www.php.net/manual/de/faq.passwords.php
             $hashedPwd = $row["password"];

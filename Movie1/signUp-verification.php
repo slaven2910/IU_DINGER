@@ -1,7 +1,7 @@
 <?php
 session_start();
 // change to original database information
-$dbConn = pg_connect("host=localhost port=5432 dbname=SlyTV user=postgres password=1234") or die("Database connection failed... " . pg_last_error());
+require_once 'db-connect/dbConnection.php';
 
 if (isset($_POST["username"]) && isset($_POST["eMail"]) && isset($_POST["password"]) && isset($_POST["pwd-repeat"])) {
 
@@ -39,20 +39,20 @@ if (isset($_POST["username"]) && isset($_POST["eMail"]) && isset($_POST["passwor
         $pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
         $nameQuery = "SELECT * FROM public.\"Users\" WHERE username='$uname'";
-        $nameQueryResult = pg_query($dbConn, $nameQuery);
+        $nameQueryResult = executeSQL($nameQuery);
 
         $eMailQuery = "SELECT * FROM public.\"Users\" WHERE email='$eMail'";
-        $eMailQueryResult = pg_query($dbConn, $eMailQuery);
+        $eMailQueryResult = executeSQL($eMailQuery);
 
-        if (pg_num_rows($nameQueryResult) > 0) {
+        if ($nameQueryResult->rowCount() > 0) {
             header("Location: signUp.php?error=Username is already taken&$typedInData");
             exit();
-        } else if (pg_num_rows($eMailQueryResult) > 0) {
+        } else if ($eMailQueryResult->rowCount() > 0) {
             header("Location: signUp.php?error=This E-Mail is already in use, try logging in&$typedInData");
             exit();
         } else {
             $insert = "INSERT INTO public.\"Users\"(username, email, password) VALUES('$uname', '$eMail', '$pwd')";
-            $result = pg_query($dbConn, $insert);
+            $result = executeSQL($insert);
 
             if ($result) {
                 header("Location: signUp.php?success=Account created successfully");
