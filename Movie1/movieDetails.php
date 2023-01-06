@@ -11,9 +11,10 @@ session_start();
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="C:\httpd-2.4.54-win64-VS17\Apache24\htdocs\IU_DINGER\Movie1\dist\css\styles.css">
+    <link rel="stylesheet" href=".\dist\css\styles.css">
 </head>
-<body class="bg-dark">
+<body>
+    <div class="darkbg">
 <div class="container">
     <!-- Navbar -->
     <?php include('./components/navbar.php'); ?>
@@ -21,21 +22,15 @@ session_start();
 <section>
 <div class="well">
 <?php
-$id = $_GET["id"];
-$sqlSelect = "select * from movieData where id = $id";
+$id = $_GET["movie_id"];
+echo $id;
+$sqlSelect = "SELECT * from public.\"Movies\" where id=$id";
 $queryResult = executeSQL($sqlSelect);
 foreach($queryResult as $row){
   $movieId = $row['id'];
   $title = $row['title'];
-  $genre = $row['genre'];
-  $released = $row['released'];
-  $rated = $row['rated'];
-  $rating = $row['rating'];
-  $director = $row['director'];
-  $writer = $row['writer'];
-  $actors = $row['actors'];
   $plot = $row['plot'];
-  $poster = $row['poster'];
+  $poster = $row['image'];
   /* $dom = new DOMDocument();
 
   $div = $dom->createElement('div');
@@ -123,6 +118,7 @@ foreach($queryResult as $row){
 
 <hr color="white">
 
+</div>
 </div>
 </body>
 </html>

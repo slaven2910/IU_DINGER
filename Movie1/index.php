@@ -10,9 +10,10 @@
     </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    <link rel="stylesheet" href="styles.css">
 
-    <link rel="stylesheet" href="C:\httpd-2.4.54-win64-VS17\Apache24\htdocs\IU_DINGER\Movie1\dist\css\styles.css">
+    <link rel="stylesheet" href=".\dist\css\styles.css">
 </head>
-<body class="bg-dark">
+<body>
+  <div class="darkbg">
 <div class="container">
 <!-- Navbar -->
 <?php include('./components/navbar.php'); ?>
@@ -25,11 +26,12 @@ session_start();
 $sqlSelect = "select * from public.\"Movies\"";
 $queryResult = executeSQL($sqlSelect);
 foreach($queryResult as $row){
-  $movieId = $row['ID'];
+  $movieId = $row['id'];
   $title = $row['title'];
   $genre = $row['genre'];
   $publishingYear = $row['publishingyear'];
   // TODO: need to change later
+  
   // $rated = $row['rated'];
   // $rating = $row['rating'];
   // $director = $row['director'];
@@ -64,7 +66,7 @@ foreach($queryResult as $row){
   <div class='well text-center'>
       <img src='$poster'>
       <h5>${title}</h5>
-      <a class='btn btn-light' href='movieDetails.php?id=$movieId'>Movie Details</a>
+      <a class='btn btn-dark border border-light textWhite' href='movieDetails.php?movie_id=$movieId'>Movie Details</a>
   </div>
 </div>";
 }
@@ -72,6 +74,6 @@ foreach($queryResult as $row){
 </div>
 </section>
 </div>
-    
+</div>
 </body>
 </html>

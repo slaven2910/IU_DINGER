@@ -10,7 +10,4 @@ function executeSQL(String $query) : PDOStatement {
     return $dbConnection->query($query);
 }
 
-
-
-
 ?>

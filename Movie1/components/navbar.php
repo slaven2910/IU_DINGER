@@ -7,13 +7,13 @@
     <title>MovieReviewApp
     </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="C:\httpd-2.4.54-win64-VS17\Apache24\htdocs\IU_DINGER\Movie1\dist\css\styles.css">
+    <link rel="stylesheet" href="../dist/css/styles.css">
 </head>
 <body>
-<div class="container">
+<div class="darkbg">
 <!-- Navbar -->
 <section>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border border-light">
+<nav class="navbar navbar-expand-lg navbar-dark  border border-light">
   <a class="navbar-brand" href="index.php">
             <img src="png/logo-white.png" class="img-fluid logo" style="width: 100px;
     height: 100px;
@@ -32,7 +32,8 @@
       </li>
     </ul>
     <form action="">
-      <a class="btn btn-outline-dark" href="./login.php">Login</a>
+      <a class="btn btn-dark border border-light " href="./login.php">Login</a>
+      <a class="btn btn-dark border border-light " href="./signUp.php">Register</a>
     </form>
   </div>
 </nav>

@@ -33,9 +33,10 @@ if (isset($_POST["eMail"]) && isset($_POST["password"])) {
             $hashedPwd = $row["password"];
 
             if ($row["email"] === $eMail && password_verify($pwd, $hashedPwd)) {
-                $_SESSION["userID"] = $row["userID"];
+                $_SESSION["user_id"] = $row["user_id"];
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["username"] = $row["username"];
+                $_SESSION['logged_in'] = true;
                 header("Location: yourAccount.php");
                 exit();
             } else {

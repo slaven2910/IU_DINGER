@@ -65,7 +65,7 @@ if (isset($_POST["username"]) && isset($_POST["eMail"]) && isset($_POST["passwor
         //     $row = pg_fetch_assoc($queryResult);
 
         //     if ($row["email"] === $eMail && $row["password"] === $pwd) {
-        //         $_SESSION["userID"] = $row["userID"];
+        //         $_SESSION["user_id"] = $row["user_id"];
         //         $_SESSION["email"] = $row["email"];
         //         $_SESSION["username"] = $row["username"];
         //         header("Location: login.php");
