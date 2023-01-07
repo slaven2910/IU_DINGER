@@ -4,13 +4,10 @@ function executeSQL(String $query) : PDOStatement {
     $port = "5432";
     $db = "SlyTV";
     $user = "postgres";
-    $pw = "aspire938";
+    // TODO: change when pulling
+    $pw = "1234";
     $connStr = "pgsql:host=$host;port=$port;dbname=$db;";
     $dbConnection = new PDO($connStr, $user, $pw);
     return $dbConnection->query($query);
 }
-
-
-
-
 ?>
