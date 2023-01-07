@@ -1,22 +1,29 @@
-
-img{
-    width: 100%;
+img {
+	width: 100%;
 }
 
-@media(min-width:960px){
-    .col-md-3 .well{
-        height: 390px;
-    }
+@media (min-width: 960px) {
+	.col-md-3 .well {
+		height: 390px;
+	}
 
-    .col-md-3 img{
-        height: 240px;
-    }
+	.col-md-3 img {
+		height: 240px;
+	}
 }
 
-.poster{
-    height:100px !important;
+.poster {
+	height: 100px !important;
 }
 
-.body{
-    background-color: black !important;
+body {
+	background-color: black !important;
+}
+
+.darkbg {
+	background-color: black !important;
+}
+
+.whiteText {
+	color: white;
 }
